@@ -1,67 +1,39 @@
-# LHWn - Title
+# LAB01 - Iterative Array Processing
 
-_A quick blurb or sub-title text_
+This lab provides the student experience declaring and processing built-in arrays in C++.
 
 ## Background
 
-Before proceeding with this lab, the student should take the time to read
+Before proceeding with this lab, the student should take the time to read the following topics as needed:
 
-* this
-* that 
-* and the other thing
+* [A.1 Language Basics](https://online.vitalsource.com/reader/books/9780134477473/epubcfi/6/440%5B%3Bvnd.vst.idref%3DP7001011925000000000000000006511%5D!/4/2%5BP7001011925000000000000000006511%5D/2/2%5BP700101192500000000000000000DF81%5D/3:14%5Basi%2Ccs%5D)
+* [A.2 Input and Output using `iostream`](https://online.vitalsource.com/reader/books/9780134477473/epubcfi/6/442%5B%3Bvnd.vst.idref%3DP70010119250000000000000000066A3%5D!/4/2%5BP70010119250000000000000000066A3%5D/2/2%5BP700101192500000000000000000E0C7%5D/4%5BP700101192500000000000000000E0C8%5D/1:6%5Btre%2Cam%5D)
+* [A.3 Functions](https://online.vitalsource.com/reader/books/9780134477473/epubcfi/6/444%5B%3Bvnd.vst.idref%3DP7001011925000000000000000006761%5D!/4/2%5BP7001011925000000000000000006761%5D/2/2%5BP700101192500000000000000000E163%5D/3:8%5Btio%2Cns%5D)
+* [A.4 Selection Statements](https://online.vitalsource.com/reader/books/9780134477473/epubcfi/6/446%5B%3Bvnd.vst.idref%3DP7001011925000000000000000006803%5D!/4/2%5BP7001011925000000000000000006803%5D/2/2%5BP700101192500000000000000000E1E4%5D/5:19%5Bmen%2Cts%5D)
+* [A.5 Iteration Statements](https://online.vitalsource.com/reader/books/9780134477473/epubcfi/6/446%5B%3Bvnd.vst.idref%3DP7001011925000000000000000006803%5D!/4/2%5BP7001011925000000000000000006803%5D/8%5BP7001011925000000000000000006862%5D/2/2%5BP700101192500000000000000000E232%5D/3:19%5Bmen%2Cts%5D)
+* [A.6. Arrays](https://online.vitalsource.com/reader/books/9780134477473/epubcfi/6/446%5B%3Bvnd.vst.idref%3DP7001011925000000000000000006803%5D!/4/2%5BP7001011925000000000000000006803%5D/10%5BP70010119250000000000000000068CC%5D/2/2%5BP700101192500000000000000000E285%5D/3:5%5Brra%2Cys%5D)
 
-## Objective
+## Objectives
 
 Upon successful completion of this lab, the student has learned how to
 
-* do this
-* do that
-* do another thing
+* declare and access elements of one- and two-dimensional arrays
+* pass arrays to functions
+* process the elements of an array
 
 ## Getting Started
 
-After accepting this assignment with the provided [GitHub Classroom Assignment link](https://classroom.github.com/fill-me-in), decide how you want to work with your newly created repository:
+After accepting this assignment with the provided [GitHub Classroom Assignment link](https://classroom.github.com/a/81fKAffH), open the repository that is created in your account in Codespaces.
 
-- Using Codespaces directly in your web browser that employees the Visual Studio Code online IDE, or
-- Using the IDE of your choice on your local machine
+Alternatively, clone this repository. If you have cloned the repository from the command line prompt, navigate into the newly created directory
 
-### Codespaces
-
-If a Codespace is available for use (and this is your preferred method of development), open your new created repository in a Codespace.
-
-At this point, you can skip to [Creating a development branch](#creating-a-development-branch).
-
-### Local Development
-
-Depending upon the IDE of your choice, many of the following steps may be taken within your IDE. It is up to you to discover these tools (assuming they're available) and learn how to use them appropriately as desired. The following instructions are assumed to take place within a terminal window. Note: many IDEs provide a terminal window as well.
-
-#### Cloning your repository
-
-The command you use to clone is slightly different depending upon whether you're using https or ssh.
-
-If you're using the https protocol, your clone command is:
-
-```shell
-git clone https://github.com/msu-csc232/<repo-name>.git
+```bash
+cd lab01-github-username
 ```
-
-If you're using the `ssh` protocol, your clone command is:
-
-```shell
-git clone git@github.com:msu-csc232/<repo-name>.git
-```
-
-After cloning the repository, navigate into the newly cloned repository:
-
-```shell
-cd <repo-name>
-```
-
-#### Creating a development branch
 
 Next, create a branch named `develop`. Please note: The name of this branch **must** be as specified and will be, to the grading scripts, case-sensitive.
 
-```shell
+```bash
 git checkout -b develop
 ```
 
@@ -77,23 +49,124 @@ _You may have to type the `q` character to get back to the command line prompt a
 
 This lab consists of three tasks:
 
-- Task 1: <TODO: Declare me!>
-- Task 2: <TODO: Declare me!>
-- Task 3: <TODO: Declare me!>
+* Task 1: Declaring arrays
+* Task 2: Declaring array parameters
+* Task 3: Processing arrays
 
-Pol, neuter abactor!
+Again, before you start, make sure you are working on your `develop` branch as specified [above](#getting-started).
 
-### Task 1: <TODO: Declare me!>
+### Task 1: Declaring Arrays
 
-Ecce, urbs!
+#### One-Dimensional Arrays
 
-### Task 2: <TODO: Declare me!>
+When declaring a one-dimensional array, one must specify both the type of each element that will be stored in the array as well as the size of the array itself. Note: This size must be known at compile time, and as such, is often declared using a named constant. A one-dimensional array declaration essentially has the following canonical form:
 
-Ubi est dexter medicina?
+```c++
+type arrayName[arraySize];
+```
 
-### Task 3: <TODO: Declare me!>
+For example, to declare an array that will store seven floating-point values meant to store the daily maximum temperatures for a given week, one could do so as follows:
 
-Ubi est dexter medicina?
+```c++
+const int DAYS_PER_WEEK = 7;
+double maxTemps[DAYS_PER_WEEK];
+```
+
+The bracket notation `[ ]` declares `maxTemps` as an array that can contain no more than seven floating-point values. The brackets provide the means necessary to access particular elements of this array by supplying an array index. The valid values of these indices are 0 to the declared size - 1. So for example:
+
+```c++
+double temp = maxTemps[0]; // access first element
+temp = maxTemps[1];        // access second element
+temp = maxTemps[6];        // access last element
+temp = maxTemps[DAYS_PER_WEEK - 1]; // same as above
+```
+
+##### One-Dimensional Array Subtasks
+
+1. Locate `TODO: 1.1` (in [csc232.h](include/csc232.h)) and declare a named constant `ROSTER_SIZE` of type integer initialized to the value `10`.
+2. Locate `TODO: 1.2` (in [csc232.h](include/csc232.h)) and declare an array named `testGrades` whose size is `ROSTER_SIZE`, that stores floating-point numbers (i.e., `double` values).
+
+Be careful accessing array elements! While there are _valid_ values to use when accessing array elements, C++ does not enforce the validity of these indexes. Using indexes outside the valid range is syntactically valid, but semantically incorrect.
+
+#### Two-Dimensional Arrays
+
+You can also declare multidimensional arrays. You use more than one index to designate an element in a multidimensional array. Suppose that you wanted to represent the minimum temperature for each day during 52 weeks. The following statements declare a two-dimensional array, `minTemps`:
+
+```c++
+const int DAYS_PER_WEEK = 7;
+const int WEEKS_PER_YEAR = 52;
+double minTemps[DAYS_PER_WEEK][WEEKS_PER_YEAR];
+```
+
+These statements specify the ranges for two indices: The first index can range from 0 to 6, while the second index can range from 0 to 51. Most people picture a two-dimensional array as a rectangular arrangement, or matrix, of elements that form rows and columns. Here, the first index would represent the rows and the second index would represent the columns.
+
+##### Two-Dimensional Array Declaration Subtasks
+
+1. Locate `TODO: 1.3` (in [csc232.h](include/csc232.h)) and declare a named constant `NUM_COURSES` of type integer initialized the value `3`.
+2. Locate `TODO: 1.4` (in [csc232.h](include/csc232.h)) and declare a two-dimensional array named `gradeBook` that has `NUM_COURSES` rows and `ROSTER_SIZE` columns.
+
+#### Completing Task 1
+
+1. If you have not done so already, create a new branch named `develop` (`git checkout -b develop`).
+2. Toggle the `TEST_TASK1` macro (in [csc232.h](include/csc232.h)) from `FALSE` to `TRUE`.
+3. Run the `task1-tests` target to verify the correctness of your code.
+4. When you are satisfied with the results, stage (`git add ...`) and commit (`git commit -m"..."`, using an appropriate commit message, e.g., `-m"Complete task 1"`) your changes (again, making sure you're doing so in the `develop` branch).
+5. Push your commits to GitHub (`git push -u origin develop` -- assuming this is your first push to GitHub).
+
+### Task 2: Declaring array parameters
+
+One important thing for passing multidimensional arrays is, first array dimension does not have to be specified. The second (and any subsequent) dimensions must be given.
+
+When both dimensions of a two-dimensional array are available globally (either as a macro or a global constant), the parameters could be declared with their dimensions in place:
+
+```c++
+const int NUM_ROWS{3};
+const int NUM_COLS{3};
+
+void processIntArray(int data[NUM_ROWS][NUM_COLS]) {
+    // ... do some processing
+}
+```
+
+When only second dimension is available globally (either as a macro or as a global constant), the parameters could be declared as such:
+
+```c++
+const int NUM_COLS{3};
+
+void processIntTable(int data[][NUM_COLS], int numRows) {
+    // ... do some processing
+}
+```
+
+If your compiler is C99 compatible, C language supports variable sized arrays to be passed simply by specifying the variable dimensions, as shown here:
+
+```c++
+void processIntTable(int numRows, int numCols, int table[][numCols]) {
+    // ... do some processing
+}
+```
+
+#### Array Processing Function Declaration Subtasks
+
+1. Locate `TODO: 2.1` (in [csc232.h](include/csc232.h)) and declare a function named `maxGrade` that specifies two parameters. The first parameter is for an array of doubles, and the second parameter is an integer that specifies the number of elements in the array to process.
+2. Locate `TODO: 2.2` (in [csc232.h](include/csc232.h)) and declare a function named `indexOfMaxGrade` that specifies three parameters. The first parameter is for a two-dimensional array of doubles. The second parameter is an integer representing the number of rows to process. The third parameter is an integer representing the number of columns to process. The function will return the index of the course that has the maximum grade. That index is modeled as an integer.
+
+#### Completing Task 2
+
+1. If you have not done so already, create a new branch named `develop` (`git checkout -b develop`).
+2. Toggle the `TEST_TASK2` macro (in [csc232.h](include/csc232.h)) from `FALSE` to `TRUE`.
+3. Run the `task2-tests` target to verify the correctness of your code.
+4. When you are satisfied with the results, stage (`git add ...`) and commit (`git commit -m"..."`, using an appropriate commit message, e.g., `-m"Complete task 2"`) your changes (again, making sure you're doing so in the `develop` branch).
+5. Push your commits to GitHub (`git push -u origin develop` -- assuming this is your first push to GitHub, otherwise, it's simply `git push`).
+
+### Task 3: Processing arrays
+
+Processing arrays amounts to using loops to iterate through the data in the array. For one dimensional arrays, this is simply a single loop; for multi-dimensional arrays, depending on the needs, the could amount to nested loops, one for each dimension.
+
+#### Processing arrays subtasks
+
+1. Locate `TODO: 3.1` (in [csc232.h](include/csc232.h)) and implement the `maxGrade`.
+2. Locate `TODO: 3.2` (in [csc232.h](include/csc232.h)) and implement the `indexOfMaxGrade`.
 
 ## Submission Details
 
@@ -113,7 +186,7 @@ As usual, prior to submitting your assignment on Microsoft Teams, be sure that y
 
 ### Due Date
 
-Your assignment submission is due by 11:59 PM, Saturday....
+Your assignment submission is due by the end of your lab period. Write permissions to your repository will expire at 23:59, Saturday, January 27, 2024.
 
 ### Grading Rubric
 
