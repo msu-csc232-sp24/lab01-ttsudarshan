@@ -25,7 +25,7 @@ SCENARIO("Evaluate Code for Task 1", "[task1]") {
                 REQUIRE(EXPECTED_ONE_D_ARRAY_SIZE == rosterSize);
             }
         }
-        AND_WHEN("we assess they have declared a one-dimensional array named testGrades") {
+        AND_WHEN("we assess they have declared a one-dimensional array named grades") {
             const char *filename = "csc232.h";
             std::ifstream input_stream{filename, std::ios::in};
             if (!input_stream)

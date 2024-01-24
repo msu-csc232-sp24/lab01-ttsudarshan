@@ -83,8 +83,8 @@ temp = maxTemps[DAYS_PER_WEEK - 1]; // same as above
 
 ##### One-Dimensional Array Subtasks
 
-1. Locate `TODO: 1.1` (in [csc232.h](include/csc232.h)) and declare a named constant `ROSTER_SIZE` of type integer initialized to the value `10`.
-2. Locate `TODO: 1.2` (in [csc232.h](include/csc232.h)) and declare an array named `testGrades` whose size is `ROSTER_SIZE`, that stores floating-point numbers (i.e., `double` values).
+1. Locate `TODO: 1.1` (in [csc232.h](include/csc232.h)) and declare a named constant `ROSTER_SIZE` of type integer initialized to the value `5`.
+2. Locate `TODO: 1.2` (in [csc232.h](include/csc232.h)) and declare an array named `grades` whose size is `ROSTER_SIZE`, that stores floating-point numbers (i.e., `double` values).
 
 Be careful accessing array elements! While there are _valid_ values to use when accessing array elements, C++ does not enforce the validity of these indexes. Using indexes outside the valid range is syntactically valid, but semantically incorrect.
 
